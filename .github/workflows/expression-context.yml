@@ -20,7 +20,7 @@ jobs:
             - name: Dump Context
               run: |
                   echo "github context:"
-                  echo ${{ toJson(github) }}
+                  echo "${{ toJson(github) }}"
                   echo "env context:"
                   echo "${{ toJson(env) }}"
                   echo "job context:"
