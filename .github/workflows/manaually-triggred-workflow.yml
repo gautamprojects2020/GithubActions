@@ -1,6 +1,11 @@
 name: Manaully Triggered Workflow
 on:
     workflow_dispatch:
+        inputs:
+            log-level:
+                description: "Set the log level"
+                required: false
+                default: "info"
 
 jobs:
     log-info:
