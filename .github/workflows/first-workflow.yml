@@ -12,5 +12,3 @@ jobs:
           echo "This is a multi-line shell command."
           echo "Each line is executed in sequence."
           echo "Goodbye, World!"
-      - name: Error Step
-        run: doesnotexistsss
