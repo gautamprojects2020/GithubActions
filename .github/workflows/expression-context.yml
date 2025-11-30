@@ -1,0 +1,35 @@
+name: Expression Context Workflow
+on:
+    push:
+        branches:
+            - main
+jobs:
+    expression-context-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Display Expression
+              id: display-expression
+              run: |
+                  echo ${{ 1}}
+                  echo ${{'hello'}}
+                  echo ${{ true }}
+                  echo ${{1>2}}
+                  echo ${{ 'string' == 'String' }}
+                  echo ${{ true && false }}
+
+            - name: Dump Context
+              run: |
+                  echo "github context:"
+                  echo ${{ toJson(github) }}
+                  echo "env context:"
+                  echo "${{ toJson(env) }}"
+                  echo "job context:"
+                  echo "${{ toJson(job) }}"
+                  echo "steps context:"
+                  echo "${{ toJson(steps) }}"
+                  echo "runner context:"
+                  echo "${{ toJson(runner) }}"
+                  echo "strategy context:"
+                  echo "${{ toJson(strategy) }}"
+                  echo "matrix context:"
+                  echo "${{ toJson(matrix) }}"
