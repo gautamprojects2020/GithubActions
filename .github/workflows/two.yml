@@ -8,6 +8,7 @@ on:
         types: [completed]
 jobs:
     run-another-shell-command:
+        if: github.event.workflow_run.conclusion == 'success'
         runs-on: ubuntu-latest
         steps:
             - name: Run another one-line shell command
