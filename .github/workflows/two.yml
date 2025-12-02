@@ -1,0 +1,19 @@
+name: Second Workflow
+on:
+    push:
+        branches:
+            - main
+    workflow_run:
+        workflows: ["First Workflow"]
+        types: [completed]
+jobs:
+    run-another-shell-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run another one-line shell command
+              run: echo "This is the second workflow running after the first workflow."
+            - name: Run another multi-line shell
+              run: |
+                  echo "This is a multi-line shell command in the second workflow."
+                  echo "Each line is executed in sequence."
+                  echo "Goodbye from the second workflow!"

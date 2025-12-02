@@ -1,0 +1,13 @@
+name: First Workflow
+on: [push]
+jobs:
+    run-shell-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Run a one-line shell command
+              run: echo "Hello, World!"
+            - name: Run a multi-line shell
+              run: |
+                  echo "This is a multi-line shell command."
+                  echo "Each line is executed in sequence."
+                  echo "Goodbye, World!"
